@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:remote_controller/blutooth.dart';
 import 'package:remote_controller/controlling_page.dart';
 
 void main() {
@@ -10,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Remote Controller',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -48,7 +50,8 @@ class _MyHomePageState extends State<MyHomePage> {
             GestureDetector(
 
               onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ControllingPage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BluetoothPageMain()));
+
               },
 
               child: Container(

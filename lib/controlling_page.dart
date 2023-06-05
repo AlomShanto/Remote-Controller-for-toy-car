@@ -58,9 +58,29 @@ class _ControllingPageState extends State<ControllingPage> {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
           children: <Widget>[
+
+            Container(
+
+              height: 100,
+
+              color: Colors.black26,
+
+              child: Center(
+                child: Text(
+                  'Speed: ${speedValue}',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    fontSize: 35
+                  ),
+                ),
+              )
+
+            ),
 
             GestureDetector(
 
@@ -94,6 +114,23 @@ class _ControllingPageState extends State<ControllingPage> {
 
               onTap: () {
                 //  ontap = true;
+                _forceStop();
+              },
+
+              child: Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.red,
+                ),
+                child: Icon(Icons.stop),
+              ),
+            ),
+            GestureDetector(
+
+              onTap: () {
+                //  ontap = true;
                 _decrementCounter();
               },
 
@@ -118,26 +155,7 @@ class _ControllingPageState extends State<ControllingPage> {
                 child: Icon(Icons.remove),
               ),
             ),
-            GestureDetector(
 
-              onTap: () {
-                //  ontap = true;
-                _forceStop();
-              },
-
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.red,
-                ),
-                child: Icon(Icons.stop),
-              ),
-            ),
-            Text(
-              'Speed now ${speedValue}',
-            ),
           ],
         ),
       ),
